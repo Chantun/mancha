@@ -11,7 +11,6 @@ var direction = Vector2()
 
 func _ready():
 	randomize()
-#	#con el metodo de global elegimos el color y lo cambiamos
-#	selfColor = get_node("/root/global").color_picker()
-#	$Sprite.modulate = selfColor
-#
+
+func modulate_sprite():
+	$Sprite.modulate = Color(selfColor)

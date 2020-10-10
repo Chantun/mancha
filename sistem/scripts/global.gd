@@ -9,51 +9,19 @@ var enemyColors = []
 var preyColors = []
 	
 func color_giver():
-#	randomizamos un resultado del array y lo eliminamos
-	var groupNodes = get_tree().get_nodes_in_group("Players")
-	
+	#tomamos un array de nodos del grupo players
 	randomize()
-	var randomNum = randi()%colors.size()
-	var color = colors[randomNum]
-	enemyColors.append(color)
-	preyColors.append(color)
-
-	colors.remove(randomNum)
-	
-	return color
-
-	
-	
-	
-	
-	
-#func color_picker():
-#	#randomizamos un resultado del array y lo eliminamos
-#	randomize()
-#	var randomNum = randi()%colors.size()
-#	var color = colors[randomNum]
-##	enemyColors.append(color)
-###	preyColors.append(color)
-##
-##	colors.remove(randomNum)
-#	return color
-#
-#func enemy_picker(selfColor):
-#	#randomiza un resultado del array y elimina
-#	randomize()
-#	var randomNum = randi()%enemyColors.size()
-#	var enemyColor = enemyColors[randomNum]
-#	return enemyColor
-#
-#func prey_picker(selfColor, enemyColor):
-#	#randomizamos un resultado del array y lo eliminamos
-#	randomize()
-#	var randomNum = randi()%preyColors.size()
-#	var preyColor = preyColors[randomNum]
-#	return preyColor
-#
-#func delete_eColor(col):
-#	enemyColors.erase(col)
-#
-#func delete_pColor(col):
-#	preyColors.erase(col)
+	var groupNodes = get_tree().get_nodes_in_group("Players")
+	#Loopeamos el array, asignandole un color random a cada nodo
+	for n in range(groupNodes.size()):
+		var node = groupNodes[n]
+		var randomNum = randi()%colors.size()
+		var color = colors[randomNum]
+		
+		node.selfColor = color
+		#agregamos el color a listas de enemy, prey y eliminamos de colors.
+		enemyColors.append(color)
+		preyColors.append(color)
+		colors.remove(randomNum)
+		#llamamos a la funcion del nodo que setea el color en el sprite
+		node.modulate_sprite()

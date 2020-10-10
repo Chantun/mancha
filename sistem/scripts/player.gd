@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var selfNmbr
+var selfNmbr = "player"
 var selfColor
 var enemyColor
 var preyColor
@@ -14,11 +14,7 @@ var globalNode
 
 func _ready():
 	globalNode = get_node("/root/global")
-#	#con el metodo de global elegimos el color y lo cambiamos
-#	selfColor = globalNode.color_picker()
-#	$Sprite.modulate = selfColor 
-	
-	
+
 
 func _physics_process(delta):
 	#movimiento
@@ -36,3 +32,5 @@ func _physics_process(delta):
 		
 	move_and_collide(direction)
 	
+func modulate_sprite():
+	$Sprite.modulate = Color(selfColor)
