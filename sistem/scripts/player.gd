@@ -1,11 +1,11 @@
 extends KinematicBody2D
 
-var selfNmbr = "player"
+var selfNmbr = -1
 var selfColor
 var enemyColor
 var preyColor
 
-var speed = 5
+var speed = 7
 var direction = Vector2()
 var screensize
 
@@ -31,6 +31,7 @@ func _physics_process(delta):
 		direction = direction.normalized() * speed
 		
 	move_and_collide(direction)
+	
 	
 func modulate_sprite():
 	$Sprite.modulate = Color(selfColor)

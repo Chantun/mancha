@@ -19,7 +19,12 @@ func _ready():
 	#instancia bots
 	add_bot(howManyBots)
 	
+	#despues que todos los elementos se instanciaron, se llama a la funcion de color
 	globalNode.color_giver()
+	#luego llamamos func de enemigo
+	globalNode.enemy_giver()
+	#luego llamamos func de presa
+	globalNode.prey_giver()
 
 #funcion que agrega cada bot en un lugar random y le asigna las variables
 func add_bot(i):

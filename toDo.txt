@@ -1,0 +1,3 @@
+	- Arreglar movimiento del jugador, normalizarlo.
+	- Mejorar sistema de seleccion de colores. Utilizar un solo array del largo de la cantidad de jugadores y elegir
+		todo de ahi y si se repite, volver a elegir.
